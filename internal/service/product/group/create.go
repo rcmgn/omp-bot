@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/ozonmp/omp-bot/internal/model/product"
+	"github.com/rcmgn/omp-bot/internal/model/product"
 )
 
-func (c *DummyGroupService) Create(group product.Group) (uint64, error) {
+func (c *DummyGroupService) Create(group product.Group) (int, error) {
 	group.Owner = strings.Trim(group.Owner, " ")
 
 	if group.Owner == "" {
@@ -18,17 +18,14 @@ func (c *DummyGroupService) Create(group product.Group) (uint64, error) {
 	if group.Items == "" {
 		return 0, fmt.Errorf("group items is empty")
 	}
-	var newID uint64 = 1
 
-	if len(c.groups) != 0 {
-		newID = c.groups[len(c.groups)-1].ID + 1
-	}
+	newID := len(Groups) + 1
 
-	c.groups = append(c.groups, product.Group{
+	Groups[newID] = product.Group{
 		ID:    newID,
 		Owner: group.Owner,
 		Items: group.Items,
-	})
+	}
 
 	return newID, nil
 }

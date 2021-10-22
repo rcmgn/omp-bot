@@ -1,17 +1,15 @@
 package group
 
 import (
-	"errors"
-
-	"github.com/ozonmp/omp-bot/internal/model/product"
+	"github.com/rcmgn/omp-bot/internal/model/product"
 )
 
 type GroupService interface {
-	Describe(groupID uint64) (*product.group, error)
+	Describe(groupID int) (*product.Group, error)
 	List() ([]product.Group, error)
-	Create(product.Group) (uint64, error)
-	Update(groupID uint64, group product.Group) error
-	Remove(groupID uint64) (bool, error)
+	Create(product.Group) (int, error)
+	Update(groupID int, group product.Group) error
+	Remove(groupID int) (bool, error)
 }
 
 type DummyGroupService struct {

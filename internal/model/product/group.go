@@ -1,13 +1,13 @@
-package group
+package product
 
 import "fmt"
 
 type Group struct {
-	ID    uint64
+	ID    int
 	Owner string
 	Items string
 }
 
 func (c *Group) String() string {
-	return fmt.Sprintf(`ID: %d, Owner: %s, Items: %s`, c.ID, c.Owner, c.Items)
+	return fmt.Sprintf("ID: %d, Owner: %s, Items: %s\n", c.ID, c.Owner, c.Items)
 }

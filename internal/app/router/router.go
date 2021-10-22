@@ -5,9 +5,9 @@ import (
 	"runtime/debug"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
-	"github.com/ozonmp/omp-bot/internal/app/commands/demo"
-	"github.com/ozonmp/omp-bot/internal/app/commands/product"
-	"github.com/ozonmp/omp-bot/internal/app/path"
+	"github.com/rcmgn/omp-bot/internal/app/commands/demo"
+	"github.com/rcmgn/omp-bot/internal/app/commands/product"
+	"github.com/rcmgn/omp-bot/internal/app/path"
 )
 
 type Commander interface {
@@ -229,7 +229,7 @@ func (c *Router) handleMessage(msg *tgbotapi.Message) {
 	case "logistic":
 		break
 	case "product":
-		c.demoCommander.HandleCommand(msg, commandPath)
+		c.productCommander.HandleCommand(msg, commandPath)
 	case "education":
 		break
 	default:

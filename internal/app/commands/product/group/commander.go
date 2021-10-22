@@ -4,8 +4,8 @@ import (
 	"log"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
-	"github.com/ozonmp/omp-bot/internal/app/path"
-	"github.com/ozonmp/omp-bot/internal/service/product/group"
+	"github.com/rcmgn/omp-bot/internal/app/path"
+	"github.com/rcmgn/omp-bot/internal/service/product/group"
 )
 
 const groupsPerPage = 3
@@ -17,6 +17,10 @@ type GroupCommander interface {
 	Delete(inputMsg *tgbotapi.Message)
 	New(inputMsg *tgbotapi.Message)
 	Edit(inputMsg *tgbotapi.Message)
+
+	Start(inputMsg *tgbotapi.Message)
+	HandleCallback(callback *tgbotapi.CallbackQuery, callbackPath path.CallbackPath)
+	HandleCommand(message *tgbotapi.Message, commandPath path.CommandPath)
 }
 
 type ProductGroupCommander struct {
@@ -56,5 +60,7 @@ func (c *ProductGroupCommander) HandleCommand(msg *tgbotapi.Message, commandPath
 		c.New(msg)
 	case "edit":
 		c.Edit(msg)
+	case "start":
+		c.Start(msg)
 	}
 }

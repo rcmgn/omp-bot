@@ -1,7 +1,7 @@
 package group
 
 import (
-	"github.com/ozonmp/omp-bot/internal/model/product"
+	"github.com/rcmgn/omp-bot/internal/model/product"
 )
 
 func (c *DummyGroupService) List() ([]product.Group, error) {

@@ -1,37 +1,37 @@
 package group
 
-import "github.com/ozonmp/omp-bot/internal/model/product"
+import "github.com/rcmgn/omp-bot/internal/model/product"
 
-var groups = []product.Group{
-	{
-		id:    1,
-		owner: "Owner 1",
-		items: "Item 1",
+var Groups = map[int]product.Group{
+	1: {
+		ID:    1,
+		Owner: "Owner 1",
+		Items: "Item 1",
 	},
-	{
-		id:    1,
-		owner: "Owner 1",
-		items: "Item 2",
+	2: {
+		ID:    2,
+		Owner: "Owner 1",
+		Items: "Item 2",
 	},
-	{
-		id:    1,
-		owner: "Owner 1",
-		items: "Item 3",
+	3: {
+		ID:    3,
+		Owner: "Owner 1",
+		Items: "Item 3",
 	},
-	{
-		id:    1,
-		owner: "Owner 2",
-		items: "Item 1",
+	4: {
+		ID:    4,
+		Owner: "Owner 2",
+		Items: "Item 1",
 	},
-	{
-		id:    1,
-		owner: "Owner 2",
-		items: "Item 2",
+	5: {
+		ID:    5,
+		Owner: "Owner 2",
+		Items: "Item 2",
 	},
-	{
-		id:    1,
-		owner: "Owner 2",
-		items: "Item 3",
+	6: {
+		ID:    6,
+		Owner: "Owner 2",
+		Items: "Item 3",
 	},
 }
 

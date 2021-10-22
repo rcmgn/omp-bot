@@ -19,7 +19,7 @@ func (c *ProductGroupCommander) Delete(inputMsg *tgbotapi.Message) {
 		return
 	}
 
-	_, err = c.groupService.Remove(uint64(id))
+	_, err = c.groupService.Remove(id)
 	if err != nil {
 		log.Printf("fail to delete group with id %d: %v", id, err)
 		return

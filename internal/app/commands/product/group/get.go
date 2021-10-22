@@ -18,16 +18,16 @@ func (c *ProductGroupCommander) Get(inputMsg *tgbotapi.Message) {
 		return
 	}
 
-	group, err := c.groupService.Describe(uint64(id))
+	group, err := c.groupService.Describe(id)
 	if err != nil {
 		log.Printf("fail to get group id %d: %v", id, err)
 		return
 	}
+	log.Printf("Get  group =  %v  msg= %s", group, group.Owner+" "+group.Items)
 
 	msg := tgbotapi.NewMessage(
 		inputMsg.Chat.ID,
-		group.Owner,
-		group.Items,
+		group.Owner+" "+group.Items,
 	)
 
 	c.bot.Send(msg)
